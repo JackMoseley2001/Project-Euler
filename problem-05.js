@@ -6,40 +6,29 @@
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  *
  */
+ 
+function smallestMultiple(lowest, highest) {
 
-/*
- * TODO: This function does not work or work as expected.
- */
-function smallestMultiple() {
+  let number = 1;
+  let numberFound = false;
 
-  let number = 2521;
-
-  let isAllDivisible = false;
-
-  while(isAllDivisible === false) {
-
-    let count = 0;
-
-    for(let div = 1; div <= 20; div++) {
-      console.log('Number % Div = ' + number % div);
-      if(number % div === 0) {
-        count += 1;
-      } else {
-        break;
-      }
-    }
-
-    console.log('Number: ' + number + ' valid for ' + count + ' out of 20');
-
-    if (count === 20) {
-      isAllDivisible = true;
+  while (numberFound === false) {
+    if (isAllDivisible(number, lowest,highest) === true) {
       return number;
     } else {
       number += 1;
     }
-
   }
 
 }
 
-console.log('This is the answer: ' + smallestMultiple()); // Answer = CURRENTLY UNKNOWN
+function isAllDivisible(number, lowest, highest) {
+  for (let div = lowest; div <= highest; div++) {
+    if (number % div !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(smallestMultiple(1,20)); // Answer = 232792560
