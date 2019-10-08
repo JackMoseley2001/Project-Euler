@@ -20,8 +20,8 @@
 
  function addArrayNumbers(inpArray) {
    let total = 0;
-   for (let i = 0; i < inpArray.length; i++) {
-     total += inpArray[i];
+   for (const item in inpArray) {
+     total += item;
    }
    return total;
  }
